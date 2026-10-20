@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zaza's Guesthouse &amp; Spa | Sheer Luxury in Soweto, Johannesburg</title>
+
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          zaza: {
+            forest: '#0E2A26',
+            deep: '#081B18',
+            moss: '#2F5D50',
+            sage: '#7E9A8E',
+            copper: '#C0773B',
+            copperlt: '#DA9C64',
+            sand: '#F6F0E6',
+            ivory: '#FDFBF7',
+            clay: '#E7DAC9',
+            ink: '#12201D',
+            mist: '#6E7F79'
+          }
+        },
+        fontFamily: {
+          serif: ['Playfair Display', 'serif'],
+          sans: ['Inter', 'sans-serif']
+        },
+        boxShadow: {
+          soft: '0 18px 50px -20px rgba(14,42,38,0.30)',
+          lift: '0 34px 80px -34px rgba(14,42,38,0.45)'
+        }
+      }
+    }
+  }
+</script>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<!-- FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  section[id] { scroll-margin-top: 100px; }
+  ::selection { background: #C0773B; color: #fff; }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1);
+    will-change: opacity, transform;
+  }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* Gallery marquee */
+  .marquee-track { animation: zaza-marquee 48s linear infinite; }
+  .marquee-track:hover { animation-play-state: paused; }
+  @keyframes zaza-marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* Nav links */
+  .nav-link {
+    position: relative;
+    color: rgba(18,32,29,.72);
+    transition: color .22s ease;
+  }
+  .nav-link:hover { color: #C0773B; }
+  .nav-link.is-active { color: #C0773B; }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -6px;
+    height: 2px; width: 0;
+    background: #C0773B;
+    transition: width .3s cubic-bezier(.22,1,.36,1);
+  }
+  .nav-link:hover::after,
+  .nav-link.is-active::after { width: 100%; }
+
+  input[type="date"]::-webkit-calendar-picker-indicator { opacity: .45; cursor: pointer; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+    .marquee-track { animation: none !important; }
+  }
+</style>
+</head>
+
+<body class="bg-zaza-ivory text-zaza-ink font-sans antialiased">
+
+<!-- ============================ TOP BAR ============================ -->
+<div class="bg-zaza-deep text-zaza-sand/90 text-[11px] tracking-wide">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-col sm:flex-row justify-between items-center gap-1.5">
+    <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-1">
+      <span><i class="fas fa-map-marker-alt text-zaza-copperlt mr-1.5"></i>96 Mphatlatsamaru St, Soweto, 1809</span>
+      <span class="hidden md:inline"><i class="far fa-clock text-zaza-copperlt mr-1.5"></i>Open daily &bull; Closes 18:00</span>
+    </div>
+    <div class="flex items-center gap-5">
+      <a href="tel:+27767344685" class="hover:text-zaza-copperlt transition"><i class="fas fa-phone-alt text-zaza-copperlt mr-1.5"></i>076 734 4685</a>
+      <a href="https://wa.me/27767344685" target="_blank" rel="noopener" class="hover:text-zaza-copperlt transition"><i class="fab fa-whatsapp mr-1"></i>WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============================ NAV ============================ -->
+<nav class="sticky top-0 z-50 bg-zaza-ivory/92 backdrop-blur-lg border-b border-zaza-clay/70">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="h-[76px] flex items-center justify-between gap-4">
+
+      <!-- Brand -->
+      <a href="#" onclick="switchView('home');return false;" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-xl bg-zaza-forest text-zaza-copperlt font-serif font-bold text-xl flex items-center justify-center shadow-soft transition group-hover:bg-zaza-copper group-hover:text-white">Z</div>
+        <div class="leading-none">
+          <span class="font-serif font-bold text-lg tracking-[0.14em] text-zaza-forest uppercase block">Zaza's</span>
+          <span class="text-[9px] uppercase tracking-[0.28em] text-zaza-copper font-semibold block mt-1.5">Guesthouse &amp; Spa</span>
+        </div>
+      </a>
+
+      <!-- Desktop links -->
+      <div class="hidden md:flex items-center gap-8 text-[13px] font-medium">
+        <a href="#" data-nav="home"    onclick="switchView('home');return false;"    class="nav-link">Home</a>
+        <a href="#" data-nav="about"   onclick="goHome('about');return false;"        class="nav-link">About</a>
+        <a href="#" data-nav="suites"  onclick="switchView('suites');return false;"   class="nav-link">Suites</a>
+        <a href="#" data-nav="amenities" onclick="goHome('amenities');return false;"  class="nav-link">Spa &amp; Amenities</a>
+        <a href="#" data-nav="lookup"  onclick="switchView('lookup');return false;"   class="nav-link">Find Booking</a>
+      </div>
+
+      <!-- CTA + burger -->
+      <div class="flex items-center gap-2">
+        <button onclick="switchView('booking')"
+                class="hidden sm:inline-flex items-center gap-2 bg-zaza-forest hover:bg-zaza-copper text-white px-6 py-3 rounded-full text-[11px] uppercase tracking-[0.16em] font-semibold transition shadow-soft">
+          <i class="fas fa-calendar-check text-[11px]"></i> Book Now
+        </button>
+        <button onclick="toggleMenu()" aria-label="Menu"
+                class="md:hidden w-11 h-11 rounded-xl border border-zaza-clay text-zaza-forest flex items-center justify-center hover:bg-zaza-sand transition">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-zaza-clay/70 bg-zaza-ivory">
+    <div class="px-5 py-4 flex flex-col text-sm font-medium text-zaza-ink/80">
+      <a href="#" onclick="switchView('home');toggleMenu();return false;"      class="py-3 border-b border-zaza-clay/50">Home</a>
+      <a href="#" onclick="goHome('about');toggleMenu();return false;"          class="py-3 border-b border-zaza-clay/50">About Us</a>
+      <a href="#" onclick="switchView('suites');toggleMenu();return false;"     class="py-3 border-b border-zaza-clay/50">Luxury Suites</a>
+      <a href="#" onclick="goHome('amenities');toggleMenu();return false;"      class="py-3 border-b border-zaza-clay/50">Spa &amp; Amenities</a>
+      <a href="#" onclick="switchView('lookup');toggleMenu();return false;"     class="py-3 border-b border-zaza-clay/50">Find Booking</a>
+      <button onclick="switchView('booking');toggleMenu();"
+              class="mt-4 w-full bg-zaza-forest text-white py-3.5 rounded-full text-[11px] uppercase tracking-[0.16em] font-semibold">
+        Book Accommodation
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================ DYNAMIC CONTENT ============================ -->
+<div id="app-container"></div>
+
+<!-- ============================ WHATSAPP FLOAT ============================ -->
+<a href="https://wa.me/27767344685?text=Hello%20Zaza's%20Guesthouse,%20I%20would%20like%20to%20enquire%20about%20a%20reservation."
+   target="_blank" rel="noopener"
+   class="fixed bottom-6 right-6 z-40 group">
+  <span class="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-20"></span>
+  <span class="relative w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center text-2xl shadow-lift transition group-hover:scale-110">
+    <i class="fab fa-whatsapp"></i>
+  </span>
+</a>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="bg-zaza-deep text-zaza-sand/80 mt-0">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-10">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+
+      <div class="md:col-span-4">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-9 h-9 rounded-lg bg-zaza-copper text-zaza-deep font-serif font-bold flex items-center justify-center">Z</div>
+          <span class="font-serif font-semibold text-lg text-white tracking-wide">Zaza's Guesthouse</span>
+        </div>
+        <p class="text-xs leading-relaxed text-zaza-sand/60 mb-6 max-w-sm">
+          Sheer luxury in the heart of Soweto. Meticulously kept, safe and tailored for discerning guests
+          who value privacy, elegance and a decent rest.
+        </p>
+        <div class="flex gap-3">
+          <a href="tel:+27767344685" class="w-9 h-9 rounded-full bg-white/8 border border-white/10 flex items-center justify-center text-sm hover:bg-zaza-copper hover:text-white hover:border-zaza-copper transition"><i class="fas fa-phone"></i></a>
+          <a href="https://wa.me/27767344685" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-white/8 border border-white/10 flex items-center justify-center text-sm hover:bg-zaza-copper hover:text-white hover:border-zaza-copper transition"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://maps.google.com/?q=96+Mphatlatsamaru+Street+Johannesburg+1809" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-white/8 border border-white/10 flex items-center justify-center text-sm hover:bg-zaza-copper hover:text-white hover:border-zaza-copper transition"><i class="fas fa-location-arrow"></i></a>
+        </div>
+      </div>
+
+      <div class="md:col-span-2">
+        <h4 class="text-[11px] uppercase tracking-[0.22em] text-zaza-copperlt font-semibold mb-5">Navigate</h4>
+        <ul class="space-y-3 text-xs">
+          <li><a href="#" onclick="switchView('home');return false;"   class="hover:text-zaza-copperlt transition">Home</a></li>
+          <li><a href="#" onclick="switchView('suites');return false;" class="hover:text-zaza-copperlt transition">Luxury Suites</a></li>
+          <li><a href="#" onclick="switchView('booking');return false;" class="hover:text-zaza-copperlt transition">Reservations</a></li>
+          <li><a href="#" onclick="switchView('lookup');return false;" class="hover:text-zaza-copperlt transition">Guest Portal</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-3">
+        <h4 class="text-[11px] uppercase tracking-[0.22em] text-zaza-copperlt font-semibold mb-5">Visit Us</h4>
+        <p class="text-xs leading-relaxed text-zaza-sand/60 mb-1">96 Mphatlatsamaru Street</p>
+        <p class="text-xs leading-relaxed text-zaza-sand/60 mb-4">Pimville, Soweto · Johannesburg, 1809</p>
+        <p class="text-xs text-zaza-sand/60"><i class="far fa-clock text-zaza-copperlt mr-2"></i>Open daily · Closes 18:00</p>
+        <a href="https://maps.google.com/?q=96+Mphatlatsamaru+Street+Johannesburg+1809" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 mt-5 text-[11px] uppercase tracking-[0.16em] font-semibold border border-zaza-copperlt/40 text-zaza-copperlt px-4 py-2.5 rounded-full hover:bg-zaza-copperlt hover:text-zaza-deep transition">
+          Get Directions <i class="fas fa-arrow-right text-[10px]"></i>
+        </a>
+      </div>
+
+      <div class="md:col-span-3">
+        <h4 class="text-[11px] uppercase tracking-[0.22em] text-zaza-copperlt font-semibold mb-5">Guest List</h4>
+        <p class="text-xs leading-relaxed text-zaza-sand/60 mb-4">Seasonal offers and quiet escapes — straight to your inbox.</p>
+        <form onsubmit="subscribe(event)" class="flex items-center bg-white/8 border border-white/10 rounded-full p-1">
+          <input type="email" required placeholder="Your email"
+                 class="flex-1 bg-transparent text-xs px-4 py-2 text-white placeholder:text-zaza-sand/40 focus:outline-none">
+          <button class="w-9 h-9 rounded-full bg-zaza-copper hover:bg-zaza-copperlt text-white flex items-center justify-center transition">
+            <i class="fas fa-arrow-right text-[11px]"></i>
+          </button>
+        </form>
+        <p id="subscribe-msg" class="text-[11px] text-zaza-copperlt mt-3 hidden">Thank you — you're on the list.</p>
+      </div>
+    </div>
+
+    <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-zaza-sand/40">
+      <p>&copy; 2026 Zaza's Guesthouse &amp; Spa. All rights reserved.</p>
+      <p>Pimville · Soweto · Johannesburg</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================ MODAL ============================ -->
+<div id="modal" class="fixed inset-0 z-[70] hidden">
+  <div class="absolute inset-0 bg-zaza-deep/75 backdrop-blur-sm" onclick="closeModal()"></div>
+  <div class="relative h-full w-full flex items-center justify-center p-4">
+    <div id="modal-card" class="bg-zaza-ivory rounded-3xl w-full max-w-md p-8 shadow-lift border border-zaza-clay"></div>
+  </div>
+</div>
+
+<!-- ============================ APP LOGIC ============================ -->
+<script>
+/* ---------------------------------------------------------------
+   DATA
+--------------------------------------------------------------- */
+const SUITES = [
+  {
+    id: 'suite-exec',
+    name: 'Executive Business Suite',
+    capacity: '1–2 Guests',
+    priceZAR: 950,
+    tag: 'Business',
+    size: '38 m²',
+    bed: 'King Bed',
+    description: 'Tailored for discerning business travellers seeking utmost privacy, a dedicated workspace and a restorative night rest.',
+    features: ['Dedicated workspace', 'Fibre Wi-Fi', 'Nespresso station', 'Rain shower'],
+    image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    id: 'suite-bridal',
+    name: 'Bridal & Romance Pamper Suite',
+    capacity: '2 Guests',
+    priceZAR: 1350,
+    tag: 'Romance',
+    size: '46 m²',
+    bed: 'King Bed + Lounge',
+    description: 'An elegant sanctuary designed for bridal couples and special occasions, complete with private spa access and champagne on arrival.',
+    features: ['Private spa access', 'Champagne on arrival', 'Soaking tub', 'Late check-out'],
+    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    id: 'suite-family',
+    name: 'Deluxe Family Sanctuary',
+    capacity: '2–4 Guests',
+    priceZAR: 1650,
+    tag: 'Family',
+    size: '62 m²',
+    bed: 'King + 2 Singles',
+    description: 'Spacious multi-guest suite offering luxury amenities, safety and comfort for visiting families and tourists exploring Johannesburg.',
+    features: ['Separate lounge', 'Two bathrooms', 'Gated parking', 'Kids welcome'],
+    image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80'
+  }
+];
+
+const SPA_PRICE = 450;
+const TODAY = new Date().toISOString().split('T')[0];
+
+/* ---------------------------------------------------------------
+   STATE
+--------------------------------------------------------------- */
+if (!localStorage.getItem('zaza_bookings_v2')) {
+  localStorage.setItem('zaza_bookings_v2', JSON.stringify([]));
+}
+
+let currentView = 'home';
+let bookingData = {
+  suiteId: 'suite-exec',
+  checkIn: '',
+  checkOut: '',
+  guests: '2',
+  name: '',
+  phone: '',
+  email: '',
+  spaPackage: false
+};
+
+let revealObserver = null;
+
+/* ---------------------------------------------------------------
+   HELPERS
+--------------------------------------------------------------- */
+const getBookings = () => JSON.parse(localStorage.getItem('zaza_bookings_v2')) || [];
+const money = n => 'R ' + Number(n).toLocaleString('en-US');
+
+function fmtDate(iso) {
+  if (!iso) return '—';
+  const d = new Date(iso + 'T00:00:00');
+  return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+}
+
+function nights() {
+  if (!bookingData.checkIn || !bookingData.checkOut) return 0;
+  const a = new Date(bookingData.checkIn + 'T00:00:00');
+  const b = new Date(bookingData.checkOut + 'T00:00:00');
+  const n = Math.round((b - a) / 86400000);
+  return n > 0 ? n : 0;
+}
+
+function toggleMenu() {
+  document.getElementById('mobile-menu').classList.toggle('hidden');
+}
+
+function subscribe(e) {
+  e.preventDefault();
+  e.target.reset();
+  document.getElementById('subscribe-msg').classList.remove('hidden');
+}
+
+/* ---------------------------------------------------------------
+   NAVIGATION / RENDER
+--------------------------------------------------------------- */
+function switchView(view, scrollTarget) {
+  currentView = view;
+  render();
+  if (scrollTarget) {
+    requestAnimationFrame(() => {
+      const el = document.getElementById(scrollTarget);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  } else {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function goHome(sectionId) {
+  currentView = 'home';
+  render();
+  requestAnimationFrame(() => {
+    const el = document.getElementById(sectionId);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+}
+
+function syncNav() {
+  document.querySelectorAll('[data-nav]').forEach(a => {
+    a.classList.toggle('is-active', a.getAttribute('data-nav') === currentView);
+  });
+}
+
+function initReveals() {
+  if (revealObserver) revealObserver.disconnect();
+  revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+}
+
+function render() {
+  const container = document.getElementById('app-container');
+  if (currentView === 'home') container.innerHTML = renderHome();
+  else if (currentView === 'suites') container.innerHTML = renderSuites();
+  else if (currentView === 'booking') container.innerHTML = renderBooking();
+  else if (currentView === 'lookup') container.innerHTML = renderLookup();
+
+  syncNav();
+  initReveals();
+
+  if (currentView === 'booking') updateSummary();
+  if (currentView === 'lookup') renderRecent();
+}
+
+/* ---------------------------------------------------------------
+   HOME VIEW
+--------------------------------------------------------------- */
+function renderHome() {
+  return `
+  <!-- ============ HERO ============ -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1900&q=80"
+           alt="Zaza's Guesthouse" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-r from-zaza-deep via-zaza-deep/85 to-zaza-deep/25"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-zaza-deep via-transparent to-transparent"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-48 md:pt-32 md:pb-56">
+      <div class="max-w-2xl">
+        <span class="inline-flex items-center gap-2 text-zaza-copperlt text-[11px] uppercase tracking-[0.28em] font-semibold mb-6">
+          <span class="w-8 h-px bg-zaza-copperlt"></span> Sheer luxury in Soweto
+        </span>
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-white leading-[1.08] mb-6">
+          A quiet sanctuary<br class="hidden sm:block"> in the heart of<br class="hidden sm:block">
+          <span class="italic text-zaza-copperlt">Johannesburg.</span>
+        </h1>
+        <p class="text-sm sm:text-base text-zaza-sand/75 leading-relaxed mb-9 max-w-lg">
+          Meticulous care, gated security and total tranquillity — crafted for discerning business
+          travellers, tourists, families and bridal couples.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <button onclick="switchView('booking')"
+                  class="bg-zaza-copper hover:bg-zaza-copperlt text-white px-8 py-4 rounded-full text-[11px] font-semibold uppercase tracking-[0.18em] transition shadow-lift">
+            Reserve Your Stay
+          </button>
+          <button onclick="switchView('suites')"
+                  class="border border-white/25 hover:border-zaza-copperlt hover:text-zaza-copperlt text-white px-8 py-4 rounded-full text-[11px] font-semibold uppercase tracking-[0.18em] transition">
+            Explore Suites
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ QUICK CHECK BAR ============ -->
+  <div class="relative -mt-24 md:-mt-28 z-20 max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="bg-zaza-ivory rounded-3xl shadow-lift border border-zaza-clay p-4 md:p-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-4 items-end">
+        <div class="md:col-span-1">
+          <label class="block text-[10px] uppercase tracking-[0.18em] font-semibold text-zaza-mist mb-2">Check-in</label>
+          <input id="qc-in" type="date" min="${TODAY}"
+                 class="w-full px-4 py-3 rounded-xl border border-zaza-clay bg-white text-sm focus:border-zaza-copper focus:outline-none">
+        </div>
+        <div class="md:col-span-1">
+          <label class="block text-[10px] uppercase tracking-[0.18em] font-semibold text-zaza-mist mb-2">Check-out</label>
+          <input id="qc-out" type="date" min="${TODAY}"
+                 class="w-full px-4 py-3 rounded-xl border border-zaza-clay bg-white text-sm focus:border-zaza-copper focus:outline-none">
+        </div>
+        <div class="md:col-span-1">
+          <label class="block text-[10px] uppercase tracking-[0.18em] font-semibold text-zaza-mist mb-2">Guests</label>
+          <select id="qc-guests"
+                  class="w-full px-4 py-3 rounded-xl border border-zaza-clay bg-white text-sm focus:border-zaza-copper focus:outline-none">
+            <option value="1">1 Guest</option>
+            <option value="2" selected>2 Guests</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4 Guests</option>
+          </select>
+        </div>
+        <div class="md:col-span-1">
+          <button onclick="quickCheck()"
+                  class="w-full bg-zaza-forest hover:bg-zaza-copper text-white py-3.5 rounded-xl text-[11px] font-semibold uppercase tracking-[0.18em] transition shadow-soft">
+            Check Availability
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ STATS STRIP ============ -->
+  <section class="mt-16 md:mt-20 bg-zaza-forest text-zaza-sand">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-4 text-center">
+      <div class="reveal">
+        <div class="font-serif text-3xl text-zaza-copperlt mb-1">4.9<span class="text-base align-top">★</span></div>
+        <div class="text-[10px] uppercase tracking-[0.2em] text-zaza-sand/55">Guest Rating</div>
+      </div>
+      <div class="reveal" style="transition-delay:.08s">
+        <div class="font-serif text-3xl text-zaza-copperlt mb-1">03</div>
+        <div class="text-[10px] uppercase tracking-[0.2em] text-zaza-sand/55">Signature Suites</div>
+      </div>
+      <div class="reveal" style="transition-delay:.16s">
+        <div class="font-serif text-3xl text-zaza-copperlt mb-1">24/7</div>
+        <div class="text-[10px] uppercase tracking-[0.2em] text-zaza-sand/55">Guest Support</div>
+      </div>
+      <div class="reveal" style="transition-delay:.24s">
+        <div class="font-serif text-3xl text-zaza-copperlt mb-1">100%</div>
+        <div class="text-[10px] uppercase tracking-[0.2em] text-zaza-sand/55">Gated &amp; Secure</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="py-20 md:py-28 bg-zaza-ivory">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+      <div class="lg:col-span-6 order-2 lg:order-1 reveal">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1000&q=80"
+               alt="Suite interior" class="rounded-3xl w-full h-[380px] md:h-[460px] object-cover shadow-soft">
+          <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=700&q=80"
+               alt="Spa detail" class="hidden sm:block absolute -bottom-10 -right-6 w-44 h-56 object-cover rounded-2xl border-[6px] border-zaza-ivory shadow-lift">
+          <div class="absolute -top-5 -left-5 bg-zaza-copper text-white rounded-2xl px-5 py-4 shadow-lift">
+            <div class="font-serif text-2xl leading-none">Est.</div>
+            <div class="text-[10px] uppercase tracking-[0.2em] mt-1">Soweto</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-6 order-1 lg:order-2">
+        <span class="inline-flex items-center gap-2 text-zaza-copper text-[11px] uppercase tracking-[0.28em] font-semibold mb-5">
+          <span class="w-8 h-px bg-zaza-copper"></span> Uncompromising excellence
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-zaza-forest leading-tight mb-6">
+          Meticulously kept,<br> quietly beautiful.
+        </h2>
+        <p class="text-sm text-zaza-ink/70 leading-relaxed mb-4">
+          Zaza's Guesthouse offers a peaceful sanctuary in the heart of Soweto, Johannesburg. We cater
+          specifically to clients who value privacy, elegance and a decent rest after a hard day at work or play.
+        </p>
+        <p class="text-sm text-zaza-ink/70 leading-relaxed mb-8">
+          Whether you are visiting for business, a holiday, a family gathering or bridal preparation, our
+          dedicated hospitality and spa services ensure total pampering from arrival to departure.
+        </p>
+
+        <div class="space-y-4 border-t border-zaza-clay pt-8">
+          ${[
+            ['fa-key', 'Private &amp; secure', 'Gated access with secure on-site parking.'],
+            ['fa-spa', 'In-house spa', 'Restorative treatments and bridal pampering.'],
+            ['fa-concierge-bell', 'Personalised hospitality', 'Attentive service tailored to your stay.']
+          ].map(([icon, title, desc]) => `
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 shrink-0 rounded-xl bg-zaza-sand border border-zaza-clay text-zaza-copper flex items-center justify-center text-sm">
+                <i class="fas ${icon}"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-sm text-zaza-forest">${title}</h3>
+                <p class="text-xs text-zaza-ink/60 mt-0.5">${desc}</p>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AMENITIES BENTO ============ -->
+  <section id="amenities" class="py-20 md:py-28 bg-zaza-sand">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div class="reveal">
+          <span class="inline-flex items-center gap-2 text-zaza-copper text-[11px] uppercase tracking-[0.28em] font-semibold mb-4">
+            <span class="w-8 h-px bg-zaza-copper"></span> Guest conveniences
+          </span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-zaza-forest">Luxury amenities &amp; spa</h2>
+        </div>
+        <p class="text-sm text-zaza-ink/60 max-w-sm leading-relaxed">
+          Every detail considered — from uninterrupted connectivity to the quiet ritual of a spa afternoon.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+
+        <!-- Big spa tile -->
+        <div class="sm:col-span-2 md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden min-h-[300px] md:min-h-[380px] group reveal">
+          <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1000&q=80"
+               alt="Spa" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-zaza-deep via-zaza-deep/30 to-transparent"></div>
+          <div class="relative h-full flex flex-col justify-end p-7">
+            <span class="w-10 h-10 rounded-xl bg-white/15 backdrop-blur border border-white/20 text-white flex items-center justify-center mb-4">
+              <i class="fas fa-spa"></i>
+            </span>
+            <h3 class="font-serif text-2xl text-white mb-2">The Zaza Spa</h3>
+            <p class="text-xs text-zaza-sand/75 leading-relaxed max-w-xs">
+              Restorative massage, bridal preparation and quiet afternoons of complete stillness.
+            </p>
+          </div>
+        </div>
+
+        ${[
+          ['fa-wifi', 'High-Speed Wi-Fi', 'Fibre connectivity for business and streaming.'],
+          ['fa-shield-alt', 'Secure Parking', 'Gated, monitored environment. Peace of mind.'],
+          ['fa-mug-hot', 'Breakfast on Request', 'Freshly prepared, served at your pace.'],
+          ['fa-concierge-bell', 'Concierge Care', 'Attentive, discreet, always available.']
+        ].map(([icon, title, desc], i) => `
+          <div class="reveal bg-zaza-ivory rounded-3xl border border-zaza-clay p-6 flex flex-col justify-between min-h-[170px] hover:shadow-soft hover:-translate-y-1 transition duration-300"
+               style="transition-delay:${0.06 * i}s">
+            <div class="w-10 h-10 rounded-xl bg-zaza-sand text-zaza-copper flex items-center justify-center text-sm">
+              <i class="fas ${icon}"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold text-sm text-zaza-forest mb-1">${title}</h3>
+              <p class="text-xs text-zaza-ink/60 leading-relaxed">${desc}</p>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SUITES PREVIEW ============ -->
+  <section id="suites-preview" class="py-20 md:py-28 bg-zaza-ivory">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-xl mx-auto mb-14 reveal">
+        <span class="inline-flex items-center gap-2 text-zaza-copper text-[11px] uppercase tracking-[0.28em] font-semibold mb-4">
+          <span class="w-8 h-px bg-zaza-copper"></span> Accommodations <span class="w-8 h-px bg-zaza-copper"></span>
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-zaza-forest mb-4">Signature suites</h2>
+        <p class="text-sm text-zaza-ink/60 leading-relaxed">Three distinct sanctuaries, each finished with the same quiet attention to detail.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        ${SUITES.map((s, i) => `
+          <article class="reveal group bg-white rounded-3xl overflow-hidden border border-zaza-clay shadow-sm hover:shadow-lift transition duration-500 flex flex-col"
+                   style="transition-delay:${0.08 * i}s">
+            <div class="relative overflow-hidden h-60">
+              <img src="${s.image}" alt="${s.name}" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+              <span class="absolute top-4 left-4 bg-zaza-ivory/95 backdrop-blur text-zaza-forest text-[10px] uppercase tracking-[0.16em] font-semibold px-3 py-1.5 rounded-full">${s.tag}</span>
+              <div class="absolute bottom-4 right-4 bg-zaza-deep/85 backdrop-blur text-white px-3.5 py-2 rounded-full text-xs font-semibold">
+                ${money(s.priceZAR)}<span class="text-[10px] font-normal opacity-70"> /night</span>
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col">
+              <h3 class="font-serif text-lg font-semibold text-zaza-forest mb-1">${s.name}</h3>
+              <p class="text-[11px] uppercase tracking-[0.14em] text-zaza-copper font-semibold mb-3">
+                <i class="fas fa-user-friends mr-1"></i>${s.capacity}
+              </p>
+              <p class="text-xs text-zaza-ink/65 leading-relaxed mb-5 flex-1">${s.description}</p>
+              <button onclick="startBookingSuite('${s.id}')"
+                      class="w-full bg-zaza-forest hover:bg-zaza-copper text-white py-3.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.16em] transition">
+                Book this suite
+              </button>
+            </div>
+          </article>
+        `).join('')}
+      </div>
+
+      <div class="text-center mt-12 reveal">
+        <button onclick="switchView('suites')"
+                class="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] font-semibold text-zaza-forest hover:text-zaza-copper transition border-b border-zaza-clay hover:border-zaza-copper pb-1">
+          View all suites <i class="fas fa-arrow-right text-[10px]"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="py-20 md:py-28 bg-zaza-forest text-zaza-sand">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-xl mx-auto mb-14 reveal">
+        <span class="inline-flex items-center gap-2 text-zaza-copperlt text-[11px] uppercase tracking-[0.28em] font-semibold mb-4">
+          <span class="w-8 h-px bg-zaza-copperlt"></span> Guest stories <span class="w-8 h-px bg-zaza-copperlt"></span>
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-white">Quietly recommended</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        ${[
+          ['The most restful night I have had in Johannesburg. Immaculate, safe and genuinely warm hospitality.', 'Thandi M.', 'Business traveller'],
+          ['We booked the bridal suite and the spa team made the whole morning calm and effortless. Beautiful.', 'Lerato &amp; Sipho', 'Bridal couple'],
+          ['Travelling with two children, the family suite gave us space and total peace of mind.', 'The Naidoo Family', 'Family stay']
+        ].map(([quote, name, role], i) => `
+          <figure class="reveal bg-white/5 border border-white/10 rounded-3xl p-7 backdrop-blur-sm" style="transition-delay:${0.08 * i}s">
+            <div class="text-zaza-copperlt text-xs mb-4 tracking-[0.3em]">★★★★★</div>
+            <blockquote class="text-sm leading-relaxed text-zaza-sand/85 mb-6">&ldquo;${quote}&rdquo;</blockquote>
+            <figcaption class="border-t border-white/10 pt-4">
+              <div class="font-serif text-sm text-white">${name}</div>
+              <div class="text-[10px] uppercase tracking-[0.18em] text-zaza-sand/45 mt-1">${role}</div>
+            </figcaption>
+          </figure>
+        `).join('')}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY MARQUEE ============ -->
+  <section class="py-16 md:py-20 bg-zaza-ivory overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 reveal">
+      <h2 class="font-serif text-2xl sm:text-3xl font-semibold text-zaza-forest">A look inside</h2>
+    </div>
+    <div class="relative">
+      <div class="marquee-track flex gap-4 w-max">
+        ${[
+          'photo-1590490360182-c33d57733427',
+          'photo-1582719478250-c89cae4dc85b',
+          'photo-1618773928121-c32242e63f39',
+          'photo-1578683010236-d716f9a3f461',
+          'photo-1540555700478-4be289fbecef',
+          'photo-1600334129128-685c5582fd35',
+          'photo-1631049307264-da0ec9d70304',
+          'photo-1566073771259-6a8506099945'
+        ].concat([
+          'photo-1590490360182-c33d57733427',
+          'photo-1582719478250-c89cae4dc85b',
+          'photo-1618773928121-c32242e63f39',
+          'photo-1578683010236-d716f9a3f461',
+          'photo-1540555700478-4be289fbecef',
+          'photo-1600334129128-685c5582fd35',
+          'photo-1631049307264-da0ec9d70304',
+          'photo-1566073771259-6a8506099945'
+        ]).map(id => `
+          <img src="https://images.unsplash.com/${id}?auto=format&fit=crop&w=600&q=80"
+               alt="Zaza's Guesthouse" class="h-48 w-72 object-cover rounded-2xl shrink-0">
+        `).join('')}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA BAND ============ -->
+  <section class="bg-zaza-sand border-y border-zaza-clay">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 grid grid-cols-1 md:grid-cols-2 gap-8 items-center reveal">
+      <div>
+        <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-zaza-forest leading-tight mb-3">
+          Your rest is<br>our only priority.
+        </h2>
+        <p class="text-sm text-zaza-ink/65 leading-relaxed max-w-md">
+          Reserve directly with us for the best available rate, flexible arrival and a personal welcome.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-3 md:justify-end">
+        <button onclick="switchView('booking')"
+                class="bg-zaza-forest hover:bg-zaza-copper text-white px-8 py-4 rounded-full text-[11px] font-semibold uppercase tracking-[0.18em] transition shadow-soft">
+          Book Accommodation
+        </button>
+        <a href="https://wa.me/27767344685" target="_blank" rel="noopener"
+           class="border border-zaza-forest/20 hover:border-zaza-copper hover:text-zaza-copper text-zaza-forest px-8 py-4 rounded-full text-[11px] font-semibold uppercase tracking-[0.18em] transition">
+          Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+  `;
+}
+
+/* ---------------------------------------------------------------
+   SUITES VIEW
+--------------------------------------------------------------- */
+function renderSuites() {
+  return `
+  <section class="bg-zaza-sand border-b border-zaza-clay py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-flex items-center gap-2 text-zaza-copper text-[11px] uppercase tracking-[0.28em] font-semibold mb-4">
+        <span class="w-8 h-px bg-zaza-copper"></span> Accommodations <span class="w-8 h-px bg-zaza-copper"></span>
+      </span>
+      <h1 class="font-serif text-3xl sm:text-5xl font-semibold text-zaza-forest mb-4">Our luxury suites</h1>
+      <p class="text-sm text-zaza-ink/60 max-w-xl mx-auto leading-relaxed">
+        Three distinct sanctuaries in Pimville, Soweto — each with its own character, and the same quiet attention to detail.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-zaza-ivory">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 md:space-y-24">
+      ${SUITES.map((s, i) => `
+        <div class="grid md:grid-cols-2 gap-8 md:gap-14 items-center reveal">
+          <div class="${i % 2 ? 'md:order-2' : ''} relative">
+            <img src="${s.image}" alt="${s.name}" class="rounded-3xl w-full h-[300px] md:h-[400px] object-cover shadow-soft">
+            <div class="absolute -bottom-5 ${i % 2 ? 'right-4' : 'left-4'} bg-zaza-ivory border border-zaza-clay rounded-2xl px-5 py-3 shadow-lift">
+              <span class="block text-[9px] uppercase tracking-[0.2em] text-zaza-mist font-semibold">From</span>
+              <span class="font-serif text-xl font-bold text-zaza-copper">${money(s.priceZAR)}</span>
+              <span class="text-[11px] text-zaza-mist">/night</span>
+            </div>
+          </div>
+
+          <div class="${i % 2 ? 'md:order-1' : ''}">
+            <span class="inline-block text-[10px] uppercase tracking-[0.2em] font-semibold text-zaza-copper bg-zaza-copper/10 px-3 py-1.5 rounded-full mb-4">${s.tag}</span>
+            <h2 class="font-serif text-2xl sm:text-3xl font-semibold text-zaza-forest mb-3">${s.name}</h2>
+            <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] uppercase tracking-[0.14em] text-zaza-mist font-semibold mb-5">
+              <span><i class="fas fa-user-friends mr-1.5 text-zaza-copper"></i>${s.capacity}</span>
+              <span><i class="fas fa-bed mr-1.5 text-zaza-copper"></i>${s.bed}</span>
+              <span><i class="fas fa-vector-square mr-1.5 text-zaza-copper"></i>${s.size}</span>
+            </div>
+            <p class="text-sm text-zaza-ink/65 leading-relaxed mb-6">${s.description}</p>
+
+            <ul class="grid grid-cols-2 gap-y-2.5 gap-x-4 mb-8">
+              ${s.features.map(f => `
+                <li class="text-xs text-zaza-ink/70 flex items-center gap-2">
+                  <i class="fas fa-check text-[10px] text-zaza-copper"></i>${f}
+                </li>
+              `).join('')}
+            </ul>
+
+            <div class="flex flex-wrap gap-3">
+              <button onclick="startBookingSuite('${s.id}')"
+                      class="bg-zaza-forest hover:bg-zaza-copper text-white px-7 py-3.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.16em] transition shadow-soft">
+                Book this suite
+              </button>
+              <a href="https://wa.me/27767344685?text=${encodeURIComponent("Hello Zaza's, I'd like to enquire about the " + s.name)}"
+                 target="_blank" rel="noopener"
+                 class="border border-zaza-forest/15 hover:border-zaza-copper hover:text-zaza-copper text-zaza-forest px-7 py-3.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.16em] transition">
+                Enquire
+              </a>
+            </div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  </section>
+
+  <section class="bg-zaza-forest text-zaza-sand py-16">
+    <div class="max-w-4xl mx-auto px-4 text-center reveal">
+      <h2 class="font-serif text-2xl sm:text-3xl font-semibold text-white mb-3">Not sure which suite suits you?</h2>
+      <p class="text-sm text-zaza-sand/65 mb-7">Send us a message and we will recommend the right room for your stay.</p>
+      <a href="https://wa.me/27767344685" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2 bg-zaza-copper hover:bg-zaza-copperlt text-white px-8 py-4 rounded-full text-[11px] font-semibold uppercase tracking-[0.18em] transition">
+        <i class="fab fa-whatsapp"></i> Ask us on WhatsApp
+      </a>
+    </div>
+  </section>
+  `;
+}
+
+/* ---------------------------------------------------------------
+   BOOKING VIEW
+--------------------------------------------------------------- */
+function renderBooking() {
+  return `
+  <section class="bg-zaza-sand border-b border-zaza-clay py-14 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-flex items-center gap-2 text-zaza-copper text-[11px] uppercase tracking-[0.28em] font-semibold mb-4">
+        <span class="w-8 h-px bg-zaza-copper"></span> Reservations
+      </span>
+      <h1 class="font-serif text-3xl sm:text-4xl font-semibold text-zaza-forest mb-3">Book your stay</h1>
+      <p class="text-sm text-zaza-ink/60">96 Mphatlatsamaru Street · Pimville, Soweto · Johannesburg</p>
+    </div>
+  </section>
+
+  <section class="py-12 md:py-16 bg-zaza-ivory">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+      <!-- FORM -->
+      <form onsubmit="submitReservation(event)" class="lg:col-span-7 space-y-6">
+
+        <!-- Step 1 -->
+        <div class="bg-white rounded-3xl border border-zaza-clay p-6 md:p-8 shadow-sm">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-8 h-8 rounded-full bg-zaza-forest text-zaza-copperlt text-xs font-bold flex items-center justify-center">1</span>
+            <h2 class="font-serif text-lg font-semibold text-zaza-forest">Your stay</h2>
+          </div>
+
+          <label class="block text-[10px] uppercase tracking-[0.18em] font-semibold text-zaza-mist mb-3">Select a suite</label>
+          <div class="space-y-3 mb-6">
+            ${SUITES.map(s => `
+              <label class="block cursor-pointer">
+                <input type="radio" name="suite" value="${s.id}" class="peer sr-only"
+                       ${bookingData.suiteId === s.id ? 'checked' : ''}
+                       onchange="setSuite('${s.id}')">
+                <div class="rounded-2xl border-2 border-zaza-clay p-4 flex items-center justify-between gap-4 transition
+                            peer-checked:border-zaza-copper peer-checked:bg-zaza-copper/5
+                            hover:border-zaza-sage">
+                  <div class="flex items-center gap-3 min-w-0">
+                    <img src="${s.image}" alt="" class="w-14 h-14 rounded-xl object-cover shrink-0">
+                    <div class="min-w-0">
+                      <div class="text-sm font-semibold text-zaza-forest truncate">${s.name}</div>
+                      <div class="text-[11px] text-zaza-mist">${s.capacity} · ${s.size}</div>
+                    </div>
+                  </div>
+                  <div class="text-right shrink-0">
+                    <div class="font-serif font-bold text-zaza-copper">${money(s.priceZAR)}</div>
+                    <div class="text-[10px] text-zaza-mist">per night</div>
+                  </div>
+                </div>
+              </label>
+            `).join('')}
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-[10px] uppercase tracking-[0.18em] font-semibold text-zaza-mist mb-2">Check-in</label>
+              <input id="f-checkin" type="date" required min="${TODAY}" value="${bookingData.checkIn}"
+                     onchange="onCheckIn(this.value)"
+                     class="w-full px-4 py-3 rounded-xl border border-zaza-clay bg-white text-sm focus:border-zaza-copper focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-[10px] uppercase tracking-[0.18em] font-semibold text-zaza-mist mb-2">Check-out</label>
+              <input id="f-checkout" type="date" required min="${bookingData.checkIn || TODAY}" value="${bookingData.checkOut}"
+                     onchange="onCheckOut(this.value)"
+                     class="w-full px-4 py-3 rounded-xl border border-zaza-clay bg-white text-sm focus:border-zaza-copper focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-[10px] uppercase tracking-[0.18em] font-semibold text-zaza-mist mb-2">Guests</label>
+              <select onchange="bookingData.guests=this.value;updateSummary()"
+                      class="w-full px-4 py-3 rounded-xl border border-zaza-clay bg-white text-sm focus:border-zaza-copper focus:outline-none">
+                ${[1, 2, 3, 4].map(g => `<option value="${g}" ${bookingData.guests == g ? 'selected' : ''}>${g} Guest${g > 1 ? 's' : ''}</option>`).join('')}
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-white rounded-3xl border border-zaza-clay p-6 md:p-8 shadow-sm">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-8 h-8 rounded-full bg-zaza-forest text-zaza-copperlt text-xs font-bold flex items-center justify-center">2</span>
+            <h2 class="font-serif text-lg font-semibold text-zaza-forest">Your details</h2>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-[10px] uppercase tracking-[0.18em] font-semibold text-zaza-mist mb-2">Full name</label>
+              <input type="text" required placeholder="e.g. Lerato Moloi" value="${bookingData.name}"
+                     oninput="bookingData.name=this.value"
+                     class="w-full px-4 py-3 rounded-xl border border-zaza-clay bg-white text-sm focus:border-zaza-copper focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-[10px] uppercase tracking-[0.18em] font-semibold text-zaza-mist mb-2">Phone number</label>
+              <input type="tel" required placeholder="076 000 0000" value="${bookingData.phone}"
+                     oninput="bookingData.phone=this.value"
+                     class="w-full px-4 py-3 rounded-xl border border-zaza-clay bg-white text-sm focus:border-zaza-copper focus:outline-none">
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-[10px] uppercase tracking-[0.18em] font-semibold text-zaza-mist mb-2">Email <span class="text-zaza-mist/60 normal-case tracking-normal">(optional)</span></label>
+              <input type="email" placeholder="you@example.com" value="${bookingData.email}"
+                     oninput="bookingData.email=this.value"
+                     class="w-full px-4 py-3 rounded-xl border border-zaza-clay bg-white text-sm focus:border-zaza-copper focus:outline-none">
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bg-white rounded-3xl border border-zaza-clay p-6 md:p-8 shadow-sm">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-8 h-8 rounded-full bg-zaza-forest text-zaza-copperlt text-xs font-bold flex items-center justify-center">3</span>
+            <h2 class="font-serif text-lg font-semibold text-zaza-forest">Extras</h2>
+          </div>
+
+          <label class="block cursor-pointer">
+            <input type="checkbox" class="peer sr-only" ${bookingData.spaPackage ? 'checked' : ''}
+                   onchange="bookingData.spaPackage=this.checked;updateSummary()">
+            <div class="rounded-2xl border-2 border-zaza-clay p-5 flex items-center justify-between gap-4 transition
+                        peer-checked:border-zaza-copper peer-checked:bg-zaza-copper/5 hover:border-zaza-sage">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-xl bg-zaza-sand text-zaza-copper flex items-center justify-center shrink-0"><i class="fas fa-spa"></i></div>
+                <div>
+                  <div class="text-sm font-semibold text-zaza-forest">Add the Spa Pamper Package</div>
+                  <div class="text-xs text-zaza-ink/60 mt-0.5">Full relaxation session for one guest.</div>
+                </div>
+              </div>
+              <div class="font-serif font-bold text-zaza-copper shrink-0">${money(SPA_PRICE)}</div>
+            </div>
+          </label>
+        </div>
+
+        <p id="form-error" class="hidden text-xs text-red-600 bg-red-50 border border-red-200 rounded-xl px-4 py-3"></p>
+
+        <button type="submit"
+                class="w-full bg-zaza-forest hover:bg-zaza-copper text-white py-4 rounded-full text-[11px] font-semibold uppercase tracking-[0.18em] transition shadow-soft">
+          Confirm reservation request
+        </button>
+        <p class="text-[11px] text-center text-zaza-ink/45 leading-relaxed">
+          No payment is taken online. Our team will confirm availability by phone or WhatsApp.
+        </p>
+      </form>
+
+      <!-- SUMMARY -->
+      <aside class="lg:col-span-5">
+        <div class="lg:sticky lg:top-28 bg-zaza-forest text-zaza-sand rounded-3xl overflow-hidden shadow-lift">
+          <div class="p-6 md:p-7 border-b border-white/10">
+            <span class="text-[10px] uppercase tracking-[0.22em] font-semibold text-zaza-copperlt">Your reservation</span>
+            <h2 class="font-serif text-xl text-white mt-2">Booking summary</h2>
+          </div>
+          <div id="summary-body" class="p-6 md:p-7"></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+  `;
+}
+
+function setSuite(id) {
+  bookingData.suiteId = id;
+  updateSummary();
+}
+
+function onCheckIn(v) {
+  bookingData.checkIn = v;
+  const out = document.getElementById('f-checkout');
+  if (out) {
+    out.min = v || TODAY;
+    if (out.value && out.value <= v) {
+      out.value = '';
+      bookingData.checkOut = '';
+    }
+  }
+  updateSummary();
+}
+
+function onCheckOut(v) {
+  bookingData.checkOut = v;
+  updateSummary();
+}
+
+function updateSummary() {
+  const el = document.getElementById('summary-body');
+  if (!el) return;
+
+  const suite = SUITES.find(s => s.id === bookingData.suiteId) || SUITES[0];
+  const n = nights();
+  const spa = bookingData.spaPackage ? SPA_PRICE : 0;
+  const total = n * suite.priceZAR + (n > 0 ? spa : 0);
+
+  el.innerHTML = `
+    <div class="space-y-3 text-xs">
+      <div class="flex items-start gap-3 pb-4 border-b border-white/10">
+        <img src="${suite.image}" alt="" class="w-16 h-16 rounded-xl object-cover shrink-0">
+        <div>
+          <div class="font-serif text-sm text-white leading-snug">${suite.name}</div>
+          <div class="text-[11px] text-zaza-sand/55 mt-1">${suite.capacity} · ${suite.bed}</div>
+        </div>
+      </div>
+
+      <div class="flex justify-between"><span class="text-zaza-sand/55">Check-in</span><span class="text-white">${fmtDate(bookingData.checkIn)}</span></div>
+      <div class="flex justify-between"><span class="text-zaza-sand/55">Check-out</span><span class="text-white">${fmtDate(bookingData.checkOut)}</span></div>
+      <div class="flex justify-between"><span class="text-zaza-sand/55">Guests</span><span class="text-white">${bookingData.guests}</span></div>
+      <div class="flex justify-between"><span class="text-zaza-sand/55">Nights</span><span class="text-white">${n > 0 ? n : '—'}</span></div>
+
+      <div class="pt-4 mt-2 border-t border-white/10 space-y-2">
+        <div class="flex justify-between"><span class="text-zaza-sand/55">${money(suite.priceZAR)} &times; ${n > 0 ? n : 0} nights</span><span class="text-white">${money(n * suite.priceZAR)}</span></div>
+        ${bookingData.spaPackage ? `<div class="flex justify-between"><span class="text-zaza-sand/55">Spa pamper package</span><span class="text-white">${money(n > 0 ? spa : 0)}</span></div>` : ''}
+      </div>
+
+      <div class="pt-4 mt-2 border-t border-white/10 flex items-end justify-between">
+        <span class="text-[10px] uppercase tracking-[0.2em] text-zaza-sand/55">Estimated total</span>
+        <span class="font-serif text-2xl text-zaza-copperlt">${n > 0 ? money(total) : '—'}</span>
+      </div>
+      ${n === 0 ? `<p class="text-[10px] text-zaza-sand/45 pt-1">Select your dates to see the total.</p>` : ''}
+    </div>
+  `;
+}
+
+function startBookingSuite(id) {
+  bookingData.suiteId = id;
+  switchView('booking');
+}
+
+function quickCheck() {
+  bookingData.checkIn = document.getElementById('qc-in').value;
+  bookingData.checkOut = document.getElementById('qc-out').value;
+  bookingData.guests = document.getElementById('qc-guests').value;
+  switchView('booking');
+}
+
+/* ---------------------------------------------------------------
+   SUBMIT
+--------------------------------------------------------------- */
+function submitReservation(e) {
+  e.preventDefault();
+  const err = document.getElementById('form-error');
+  const suite = SUITES.find(s => s.id === bookingData.suiteId) || SUITES[0];
+  const n = nights();
+
+  const fail = (msg) => {
+    if (err) { err.textContent = msg; err.classList.remove('hidden'); }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  if (n <= 0) { fail('Please choose a valid check-in and check-out date.'); return; }
+  if (!bookingData.name.trim()) { fail('Please enter the guest name.'); return; }
+  if (!bookingData.phone.trim()) { fail('Please enter a contact phone number.'); return; }
+
+  if (err) err.classList.add('hidden');
+
+  const spa = bookingData.spaPackage ? SPA_PRICE : 0;
+  const total = n * suite.priceZAR + spa;
+  const ref = 'ZZ-' + new Date().getFullYear() + '-' + Math.floor(1000 + Math.random() * 9000);
+
+  const booking = {
+    ref,
+    suiteId: suite.id,
+    suite: suite.name,
+    name: bookingData.name.trim(),
+    phone: bookingData.phone.trim(),
+    email: bookingData.email.trim(),
+    checkIn: bookingData.checkIn,
+    checkOut: bookingData.checkOut,
+    guests: bookingData.guests,
+    spa: bookingData.spaPackage,
+    nights: n,
+    total,
+    status: 'CONFIRMED',
+    created: new Date().toISOString()
+  };
+
+  const bookings = getBookings();
+  bookings.unshift(booking);
+  localStorage.setItem('zaza_bookings_v2', JSON.stringify(bookings.slice(0, 25)));
+
+  openConfirmation(booking);
+}
+
+function openConfirmation(b) {
+  document.getElementById('modal-card').innerHTML = `
+    <div class="text-center mb-6">
+      <div class="w-14 h-14 rounded-full bg-zaza-copper/10 text-zaza-copper text-2xl flex items-center justify-center mx-auto mb-4">
+        <i class="fas fa-check"></i>
+      </div>
+      <h3 class="font-serif text-2xl font-semibold text-zaza-forest mb-2">Reservation confirmed</h3>
+      <p class="text-xs text-zaza-ink/60">A confirmation message will follow on WhatsApp.</p>
+    </div>
+
+    <div class="bg-zaza-sand rounded-2xl p-5 space-y-2.5 text-xs border border-zaza-clay">
+      <div class="flex justify-between"><span class="text-zaza-mist">Reference</span><span class="font-bold text-zaza-copper">${b.ref}</span></div>
+      <div class="flex justify-between"><span class="text-zaza-mist">Guest</span><span class="text-zaza-forest font-medium">${b.name}</span></div>
+      <div class="flex justify-between"><span class="text-zaza-mist">Suite</span><span class="text-zaza-forest font-medium text-right">${b.suite}</span></div>
+      <div class="flex justify-between"><span class="text-zaza-mist">Dates</span><span class="text-zaza-forest font-medium">${fmtDate(b.checkIn)} → ${fmtDate(b.checkOut)}</span></div>
+      <div class="flex justify-between"><span class="text-zaza-mist">Nights</span><span class="text-zaza-forest font-medium">${b.nights}</span></div>
+      <div class="flex justify-between"><span class="text-zaza-mist">Spa package</span><span class="text-zaza-forest font-medium">${b.spa ? 'Included' : 'Not added'}</span></div>
+      <div class="flex justify-between pt-2 border-t border-zaza-clay"><span class="text-zaza-mist">Estimated total</span><span class="font-serif font-bold text-base text-zaza-copper">${money(b.total)}</span></div>
+    </div>
+
+    <p class="text-[11px] text-zaza-ink/50 leading-relaxed mt-5 text-center">
+      96 Mphatlatsamaru Street, Soweto · Johannesburg, 1809<br>
+      Please keep your reference handy when you arrive.
+    </p>
+
+    <div class="mt-6 space-y-2">
+      <button onclick="closeModal()" class="w-full bg-zaza-forest hover:bg-zaza-copper text-white py-3.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.16em] transition">
+        Done
+      </button>
+      <a href="https://wa.me/27767344685?text=${encodeURIComponent("Hello Zaza's, my booking reference is " + b.ref)}"
+         target="_blank" rel="noopener"
+         class="block text-center w-full border border-zaza-clay hover:border-zaza-copper hover:text-zaza-copper text-zaza-forest py-3.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.16em] transition">
+        Message us on WhatsApp
+      </a>
+    </div>
+  `;
+  document.getElementById('modal').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.add('hidden');
+  document.body.style.overflow = '';
+  bookingData.checkIn = '';
+  bookingData.checkOut = '';
+  bookingData.spaPackage = false;
+  switchView('home');
+}
+
+/* ---------------------------------------------------------------
+   LOOKUP VIEW
+--------------------------------------------------------------- */
+function renderLookup() {
+  return `
+  <section class="bg-zaza-sand border-b border-zaza-clay py-14 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-flex items-center gap-2 text-zaza-copper text-[11px] uppercase tracking-[0.28em] font-semibold mb-4">
+        <span class="w-8 h-px bg-zaza-copper"></span> Guest portal
+      </span>
+      <h1 class="font-serif text-3xl sm:text-4xl font-semibold text-zaza-forest mb-3">Find your reservation</h1>
+      <p class="text-sm text-zaza-ink/60">Enter the reference you received when you booked.</p>
+    </div>
+  </section>
+
+  <section class="py-12 md:py-16 bg-zaza-ivory">
+    <div class="max-w-xl mx-auto px-4">
+
+      <div class="bg-white rounded-3xl border border-zaza-clay p-7 md:p-9 shadow-soft">
+        <label class="block text-[10px] uppercase tracking-[0.18em] font-semibold text-zaza-mist mb-3">Booking reference</label>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <input id="lookup-ref" type="text" placeholder="ZZ-2026-1234"
+                 onkeydown="if(event.key==='Enter'){performLookup();}"
+                 class="flex-1 px-4 py-3.5 rounded-xl border border-zaza-clay bg-white text-sm uppercase tracking-wider text-center sm:text-left focus:border-zaza-copper focus:outline-none">
+          <button onclick="performLookup()"
+                  class="bg-zaza-forest hover:bg-zaza-copper text-white px-7 py-3.5 rounded-xl text-[11px] font-semibold uppercase tracking-[0.16em] transition shrink-0">
+            Search
+          </button>
+        </div>
+
+        <div id="lookup-res" class="mt-6"></div>
+      </div>
+
+      <div class="mt-8">
+        <h3 class="text-[10px] uppercase tracking-[0.2em] font-semibold text-zaza-mist mb-3">Recent on this device</h3>
+        <div id="recent-list" class="space-y-2"></div>
+      </div>
+    </div>
+  </section>
+  `;
+}
+
+function renderRecent() {
+  const list = document.getElementById('recent-list');
+  if (!list) return;
+  const bookings = getBookings().slice(0, 4);
+
+  if (!bookings.length) {
+    list.innerHTML = `<p class="text-xs text-zaza-ink/40 italic">No reservations stored on this device yet.</p>`;
+    return;
+  }
+
+  list.innerHTML = bookings.map(b => `
+    <button onclick="document.getElementById('lookup-ref').value='${b.ref}';performLookup();"
+            class="w-full text-left bg-white border border-zaza-clay rounded-2xl px-4 py-3 hover:border-zaza-copper transition flex items-center justify-between gap-3">
+      <span class="min-w-0">
+        <span class="block text-xs font-semibold text-zaza-forest truncate">${b.name}</span>
+        <span class="block text-[11px] text-zaza-mist truncate">${b.suite}</span>
+      </span>
+      <span class="text-[11px] font-semibold text-zaza-copper shrink-0">${b.ref}</span>
+    </button>
+  `).join('');
+}
+
+function performLookup() {
+  const input = document.getElementById('lookup-ref');
+  const res = document.getElementById('lookup-res');
+  if (!input || !res) return;
+
+  const ref = input.value.trim().toUpperCase();
+  if (!ref) {
+    res.innerHTML = `<p class="text-xs text-zaza-mist">Please enter a reference to search.</p>`;
+    return;
+  }
+
+  const found = getBookings().find(b => b.ref.toUpperCase() === ref);
+
+  if (!found) {
+    res.innerHTML = `
+      <div class="rounded-2xl border border-red-200 bg-red-50 p-4 text-xs text-red-600 flex items-start gap-3">
+        <i class="fas fa-circle-exclamation mt-0.5"></i>
+        <span>No reservation found for <strong>${ref}</strong>. Check the reference or contact us on WhatsApp.</span>
+      </div>`;
+    return;
+  }
+
+  res.innerHTML = `
+    <div class="rounded-2xl border border-zaza-clay bg-zaza-sand p-5 space-y-2.5 text-xs">
+      <div class="flex items-center justify-between pb-3 border-b border-zaza-clay">
+        <span class="font-serif text-sm text-zaza-forest">${found.suite}</span>
+        <span class="text-[10px] uppercase tracking-[0.16em] font-bold text-green-700 bg-green-100 px-2.5 py-1 rounded-full">${found.status}</span>
+      </div>
+      <div class="flex justify-between"><span class="text-zaza-mist">Reference</span><span class="font-bold text-zaza-copper">${found.ref}</span></div>
+      <div class="flex justify-between"><span class="text-zaza-mist">Guest</span><span class="text-zaza-forest font-medium">${found.name}</span></div>
+      <div class="flex justify-between"><span class="text-zaza-mist">Check-in</span><span class="text-zaza-forest font-medium">${fmtDate(found.checkIn)}</span></div>
+      <div class="flex justify-between"><span class="text-zaza-mist">Check-out</span><span class="text-zaza-forest font-medium">${fmtDate(found.checkOut)}</span></div>
+      <div class="flex justify-between"><span class="text-zaza-mist">Nights</span><span class="text-zaza-forest font-medium">${found.nights || '—'}</span></div>
+      <div class="flex justify-between"><span class="text-zaza-mist">Spa package</span><span class="text-zaza-forest font-medium">${found.spa ? 'Included' : 'Not added'}</span></div>
+      <div class="flex justify-between pt-2 border-t border-zaza-clay"><span class="text-zaza-mist">Estimated total</span><span class="font-serif font-bold text-sm text-zaza-copper">${money(found.total || 0)}</span></div>
+    </div>
+  `;
+}
+
+/* ---------------------------------------------------------------
+   BOOT
+--------------------------------------------------------------- */
+window.addEventListener('load', () => {
+  render();
+});
+</script>
+</body>
+</html>
